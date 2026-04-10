@@ -1,0 +1,18 @@
+vpc_cidr = "10.0.0.0/24"
+vpc_name = "t-vpc"
+#PUBLIC SUBNET 
+pubsub_cidr= "10.0.0.0/25"
+subnet_az = ["ap-south-1a", "ap-south-1b"]
+pubsub_name = "T-publicsubnet"
+#private subnet
+prisub_cidr = "10.0.0.128/25"
+prisub_name = "T-privatesubnet"
+#igw
+name_of_igw = "T-IGW"
+#rts
+name_of_rt = ["T-public-rt","T-private-rt"]
+#key pairs
+public_ec2instance_public_key =  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDJuhaE8QG9R3NAujsX9jiY3yPNNV3YeS30huGftn/36Oz84NiYm7TxkHascArU5ofN95kNecDAzrgksLpRSmw+ANcnvNtA3nYi/iaqR0dXzDaOMZZ23V/327eaUVnUwvcKGiuVcSo3R50cPyYnVsuyTLMxggpF0arVhsr+VpUJgnajYt/dWvumYL3uzb5lw7jatpYuCeIDawkfGYuzxvwQepB0Zk3vcNsOISNwDRVVaaAK7h0KBT2rPpMek1nvvsXmCCg1TBVwSt1HzBh/KGy5KjWVfVQFuTZKKeMOai1bh1AMcnTb4MVNCy19DzS9/ahNUAuZb59huPLdgrRyhDthio8A1go9LaRAD/z0/FQQiBvGvY5soP2kdhytQw46QX77VHNHilCIXg7sD/PDlU66ttCqxLGjnSg1E7y95cbpLo2CMmu2t4xs5PXSksg/egytp+HabL20J4M/91oSryauWVcxLHqkFUbYCf170s1lsStrBJXHLH+GUunLfTGsZPJXGZ9nEdcXPnZP1TRHqJUGnHstTLEBQHu55byg8vldlIknhY7BOTddpvkNmABaMtDWEx/MKPVpros/8xHE9fNm3911r0J4v5BYRZxz+FpAm9Auah0VvJHnD89+/KhwAnIBGQzYDO7VY4pvvthxzsZeq5P9D1tniYRpb8i4TdXZNw== agkak@Akanksha"
+private_ec2instance_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDBqm1x/yGTiKwBhO4gsgVkZTp36J0MRDAXqRxbs10cJShT3mbh27k/AjuLtDC1krDeApD+b+amZrMIlvjhgraOVG7oeNE/sq080LLCgqBvMATm6nE+z+OvLiNfEw7Nusmy/6O5Nq1kCt7Bte2TdMnZUXhDkRWK67ZHQxT0Y1VnAgrwvigJ31UVPAjReu5Mu24KQxIKSmg9QRu7zQSDhO/rQMrypj3Ijcu9hyvmnnooXqvUqCSDjw+yr1fccZaUXfm0qR7ddLwR6hHjprnqFAsJfe/4L8y122LBAf/T5uEbL6MBtSPl+sTKu8B+djMG5C0wcuNn2WEAySeEIDe1g1WmBuw78XOuC4Ud2Y7PYcLfADWl09Oj3XtR+ScC3dORtX42nMN3k5B2WcXW3cAw57pS/3um23XszSH3noHNdRDwm+MPpnGDsIPu6XcaytCPSDr6SfrbYoGJVefYyweNSKRYQyDwzW75VEz3/okA6Vp0Wusic4xsvwUsHO7hFqh2rPz4awWm8Y2Gk5x81HkNNt2ay4bkcY8O0sSSrk76TdQNTBep2GIYsePyWC+p11gNnYomBCuWSfeb+MVv+22hYnXz+nXJWlf7DQ/7ciutoLIEQtKtXrz631nwKPPtHZZdiQUOYKOCStB7YxW93fmoZC1n/dL7NA2ufftdeA3bQCg/Gw== agkak@Akanksha"
+ec2_ami = "ami-045443a70fafb8bbc"
+type_of_ec2_instance ="t3.micro"
