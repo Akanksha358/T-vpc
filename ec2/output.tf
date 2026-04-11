@@ -22,10 +22,10 @@ output "private_sg_id" {
   value = aws_security_group.private_sg.id
 }
 
-output "public_key_name" {
-  value = aws_key_pair.public_key.key_name
-}
+# output "public_key_name" {
+#   value = aws_key_pair.public_key.key_name
+# }
 
-output "private_key_name" {
-  value = aws_key_pair.private_key.key_name
-}
+# output "private_key_name" {
+#   value = aws_key_pair.private_key.key_name
+# }

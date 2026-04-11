@@ -1,9 +1,9 @@
-variable public_ec2_public_key{
-    type = string 
-}
-variable private_ec2_public_key{
-    type = string 
-}
+# variable public_ec2_public_key{
+#     type = string 
+# }
+# variable private_ec2_public_key{
+#     type = string 
+# }
 variable ami_id {
     type = string
 }

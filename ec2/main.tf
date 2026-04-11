@@ -1,21 +1,41 @@
+# resource "aws_key_pair" "public_key" {
+#   key_name   = "public-ec2-key"
+#   public_key = var.public_ec2_public_key
+#   tags       = { Name = "public-ec2-key" }
+# }
+
+# resource "aws_key_pair" "private_key" {
+#   key_name   = "private-ec2-key"
+#   public_key = var.private_ec2_public_key
+#   tags       = { Name = "private-ec2-key" }
+# }
+# Fetch keys from Secrets Manager
+data "aws_secretsmanager_secret_version" "public_instance_key_pub" {
+  secret_id = "prod/ec2/public-instance-key-pub"
+}
+
+data "aws_secretsmanager_secret_version" "private_instance_key_pub" {
+  secret_id = "prod/ec2/private-instance-key-pub"
+}
+
+# Key pair resources now read from Secrets Manager
 resource "aws_key_pair" "public_key" {
   key_name   = "public-ec2-key"
-  public_key = var.public_ec2_public_key
+  public_key = data.aws_secretsmanager_secret_version.public_instance_key_pub.secret_string
   tags       = { Name = "public-ec2-key" }
 }
 
 resource "aws_key_pair" "private_key" {
   key_name   = "private-ec2-key"
-  public_key = var.private_ec2_public_key
+  public_key = data.aws_secretsmanager_secret_version.private_instance_key_pub.secret_string
   tags       = { Name = "private-ec2-key" }
 }
-
 # ─── SECURITY GROUP — PUBLIC EC2 ──────────────────────
 resource "aws_security_group" "public_sg" {
   name   = "T-public-ec2-sg"
   vpc_id = var.vpc_id
   lifecycle {
-    create_before_destroy = true           # ← add this
+    create_before_destroy = true          
   }
 
   ingress {
@@ -26,13 +46,6 @@ resource "aws_security_group" "public_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    description = "HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 
   egress {
     from_port   = 0
@@ -49,7 +62,7 @@ resource "aws_security_group" "private_sg" {
   name   = "T-private-ec2-sg"
   vpc_id = var.vpc_id
    lifecycle {
-    create_before_destroy = true           # ← add this
+    create_before_destroy = true       
   }
 
   ingress {

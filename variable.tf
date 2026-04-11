@@ -28,12 +28,12 @@ variable name_of_igw{
 variable name_of_rt { type = list(string) }
 
 #key pair ec2
-variable public_ec2instance_public_key {
-    type = string 
-}
-variable private_ec2instance_public_key{
-    type = string 
-}
+# variable public_ec2instance_public_key {
+#     type = string 
+# }
+# variable private_ec2instance_public_key{
+#     type = string 
+# }
 #ec2 instances
 variable ec2_ami{
     type = string 
