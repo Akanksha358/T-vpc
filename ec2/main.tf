@@ -1,14 +1,3 @@
-# resource "aws_key_pair" "public_key" {
-#   key_name   = "public-ec2-key"
-#   public_key = var.public_ec2_public_key
-#   tags       = { Name = "public-ec2-key" }
-# }
-
-# resource "aws_key_pair" "private_key" {
-#   key_name   = "private-ec2-key"
-#   public_key = var.private_ec2_public_key
-#   tags       = { Name = "private-ec2-key" }
-# }
 # Fetch keys from Secrets Manager
 data "aws_secretsmanager_secret_version" "public_instance_key_pub" {
   secret_id = "prod/ec2/public-instance-key-pub"

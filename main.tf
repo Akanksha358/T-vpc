@@ -20,3 +20,16 @@ module "ec2" {
     ami_id = var.ec2_ami
     instance_type=var.type_of_ec2_instance
 }
+module "rds" {
+    source = "./rds"
+    vpc_id  = module.networking.vpc_id           
+    private_ec2_sg_id = module.ec2.private_sg_id
+    subnet_ids = [
+        module.networking.public_subnet_id,
+        module.networking.private_subnet_id
+    ]
+    rds_instance_identifier = var.db_identifier
+    db_instance_class       = var.db_instance_class
+    db_name                 = var.db_name
+    db_user                 = var.db_username
+}

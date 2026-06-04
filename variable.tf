@@ -41,3 +41,19 @@ variable ec2_ami{
 variable type_of_ec2_instance{
     type = string 
 }
+#RDS
+variable "db_identifier" {
+  type = string
+}
+
+variable "db_name" {
+  type = string
+}
+
+variable "db_username" {
+  type = string
+}
+
+variable "db_instance_class" {
+  type = string
+}
